@@ -58,6 +58,7 @@ class BaseOrmRelationDatagridListener
         $datagrid   = $event->getDatagrid();
         $datasource = $datagrid->getDatasource();
         $parameters = $datagrid->getParameters();
+
         if ($datasource instanceof OrmDatasource) {
             /** @var QueryBuilder $query */
             $queryBuilder = $datasource->getQueryBuilder();
@@ -81,17 +82,12 @@ class BaseOrmRelationDatagridListener
                 }
             }
 
-            $queryParameters = [
-                $this->paramName => $parameters->get($this->paramName),
-                'data_in'        => $dataIn,
-                'data_not_in'    => $dataOut,
-            ];
+            $queryBuilder->setParameter($this->paramName, $parameters->get($this->paramName));
 
-            if (!$this->isEditMode) {
-                unset($queryParameters['data_in'], $queryParameters['data_not_in']);
+            if ($this->isEditMode) {
+                $queryBuilder->setParameter('data_in', $dataIn);
+                $queryBuilder->setParameter('data_not_in', $dataOut);
             }
-
-            $queryBuilder->setParameters($queryParameters);
         }
     }
 }
