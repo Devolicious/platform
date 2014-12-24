@@ -127,9 +127,9 @@ services:
         tags:
             - { name: kernel.event_listener, event: console.terminate }
 
-    oro_search.event_listener.orm.fulltext_index_listener:
-        class: %oro_search.event_listener.orm.fulltext_index_listener.class%
-        arguments:
-            - %database_driver%
-        tags:
-            - { name: doctrine.event_listener, event: loadClassMetadata }
+#    oro_search.event_listener.orm.fulltext_index_listener:
+#        class: %oro_search.event_listener.orm.fulltext_index_listener.class%
+#        arguments:
+#            - %database_driver%
+#        tags:
+#            - { name: doctrine.event_listener, event: loadClassMetadata }
