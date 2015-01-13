@@ -1,6 +1,7 @@
 oro_translation_jstranslation:
     path:      /js/translation/{_locale}.js
     defaults:  { _controller:  oro_translation.controller:indexAction }
+    schemes: [https]
 
 oro_translation_service:
     resource:     "@OroTranslationBundle/Controller"
