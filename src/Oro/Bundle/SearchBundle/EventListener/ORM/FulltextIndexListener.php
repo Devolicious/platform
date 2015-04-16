@@ -40,9 +40,9 @@ class FulltextIndexListener
             return;
         }
 
-        $classMetadata->table['options']['engine'] = PdoMysql::ENGINE_MYISAM;
-        $classMetadata->table['indexes']['value'] = [
-            'columns' => ['value']
-        ];
+//        $classMetadata->table['options']['engine'] = PdoMysql::ENGINE_MYISAM;
+//        $classMetadata->table['indexes']['value'] = [
+//            'columns' => ['value']
+//        ];
     }
 }
